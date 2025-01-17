@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoverable Dropdown Example</title>
     <style>
-        @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+        @import "bulma.min.css";
 
         :root {
             --primary: #236192;
@@ -139,13 +139,13 @@
                                onmouseover="updateDescription('There are several relevant organizations in the region worth visiting regularly to expand sustainability literacy in the Interlochen community. Connections with these organizations will be expanded in the future to support frequent visits and collaboration.')">Located off Campus</a>
                         </div>
                     </div>
-                    <div class="dropdown-content">
-                        <div class="dropdown-item">
-                            <div id="description-container" class="box"
-                                 style="background-color: #236192; color: #efdbb2; padding: 20px; height: 100%; display: flex; align-items: center; justify-content: center; box-shadow: none;">
-                                <p id="description-text" style="color: #efdbb2; font-size: 1.5em;">Hover over an item to see the
-                                    description.</p>
-                            </div>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item">
+                        <div id="description-container" class="box"
+                             style="background-color: #236192; color: #efdbb2; padding: 20px; height: 100%; display: flex; align-items: center; justify-content: center; box-shadow: none;">
+                            <p id="description-text" style="color: #efdbb2; font-size: 1.5em;">Hover over an item to see the
+                                description.</p>
                         </div>
                     </div>
                 </div>
