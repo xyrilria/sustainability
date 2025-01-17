@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoverable Dropdown Example</title>
+    <style>
+        @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+        :root {
+            --primary: #236192;
+            --primary-invert: #fff;
+            --link: #EFDBB2;
+            --success: #A0DAB3;
+            --warning: #F0B37E;
+            --danger: #FF808B;
+        }
+
+        body {
+            background-color: var(--link);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown {
+            position: relative;
+
+        .dropdown-menu {
+            position: absolute;
+            left: 0;
+            transform-origin: top;
+            transform: scaleY(0);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            width: 50%;
+            background-color: #236192;
+            color: #efdbb2;
+
+        .dropdown-menu .dropdown-content:nth-child(2) {
+            position: absolute; /* Absolute positioning relative to dropdown parent */
+            top: 0;
+            right: 0; /* Aligns the left edge of the first dropdown-content to the left of the trigger */
+            transform-origin: top; /* Origin point for animations */
+            transform: translateX(100%); /* Scale down by default (hidden) */
+            width: 100%; /* Ensures both dropdown-content divisions split the trigger's width evenly */
+        }
+
+        .dropdown:hover .dropdown-menu {
+            transform: scaleY(1); /* Scale up to full size */
+            opacity: 1; /* Make visible */
+        }
+
+        .dropdown-trigger img {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out; /* Add hover animation to the image */
+        }
+
+        .dropdown-trigger img:hover {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        .dropdown-content {
+            border-radius: 8px;
+            background-color: #236192; /* Updated background color */
+            color: #efdbb2; /* Updated text color */
+            padding: 10px; /* Added consistent padding */
+            font-size: 1rem; /* Ensuring consistent font size */
+        }
+
+        .dropdown-divider {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="columns">
+    <!-- First Column -->
+    <div class="column is-one-fifth has-text-centered">
+    </div>
+
+    <!-- Second Column -->
+    <div class="column is-three-fifths has-text-centered">
+        <div class="dropdown is-hoverable">
+            <!-- Trigger Section -->
+            <div class="dropdown-trigger">
+                <img src="trigger.png" alt="Dropdown Trigger" width="100%" class="pt-5">
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <div class="dropdown-item" style="background-color: #236192; color: #efdbb2;">
+                        <div class="dropdown-item">
+                            <h6 class="title is-6" style="background-color: #236192; color: #efdbb2;"
+                                onmouseover="updateDescription('Expand sustainability-related activities and learning opportunities for Interlochen students by 2028')">Student Engagement</h6>
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('We are working with teachers across campus to incorporate sustainability into their curriculum, but there is still progress to be made.')">Curriculum</a>
+
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('Meetings discussing sustainability and its importance are common, and students are instructed on proper use of recycling and composting in order to help our waste management efforts thrive.')">Student
+                                Orientation</a>
+
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('Student groups are frequently engaged in sustainability subject matter, especially during campus-wide service days like Day of Caring and Earth Day events.')">Peer
+                                Education</a>
+                        </div>
+                        <hr class="dropdown-divider">
+
+                        <!-- Column 2 -->
+                        <div class="dropdown-item">
+                            <h6 class="title is-6" style="background-color: #236192; color: #efdbb2;"
+                                onmouseover="updateDescription('Increase awareness and education among adults in the Interlochen community about sustainability initiatives and achievements by 2028.')">Campus Engagement</h6>
+                            <a href="#" class="dropdown-item"
+                               style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('While some opportunities exist, there is work that needs to be done to expand both the scope and availability of them.')">Professional Development</a>
+
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('Expand the reach and prevalence of sustainability communications both internally and externally')">Communication</a>
+
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('While there are weekly meetings, they have a need to be expanded to more areas.')">Employee Orientation</a>
+                        </div>
+                        <hr class="dropdown-divider">
+
+                        <!-- Column 3 -->
+                        <div class="dropdown-item" style="background-color: #236192; color: #efdbb2;">
+                            <h6 class="title is-6" style="background-color: #236192; color: #efdbb2;"
+                                onmouseover="updateDescription('Expand and promote community relationships to advance sustainability work by 2028.')">Public Engagement</h6>
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('Future plans to utilize existing communication channels and outreach to include specific topics and activities related to our sustainability goals and conservation efforts.')">Intra-campus Organization</a>
+
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('Regular and frequent community events are hosted by Interlochen’s Sustainability Department, especially during summer months, to expose all interested parties to sustainability and agro-educational subject matter.')">Located on Campus</a>
+
+                            <a href="#" class="dropdown-item" style="background-color: #236192; color: #efdbb2;"
+                               onmouseover="updateDescription('There are several relevant organizations in the region worth visiting regularly to expand sustainability literacy in the Interlochen community. Connections with these organizations will be expanded in the future to support frequent visits and collaboration.')">Located off Campus</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <div id="description-container" class="box"
+                                 style="background-color: #236192; color: #efdbb2; padding: 20px; height: 100%; display: flex; align-items: center; justify-content: center; box-shadow: none;">
+                                <p id="description-text" style="color: #efdbb2; font-size: 1.5em;">Hover over an item to see the
+                                    description.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Column -->
+        <div class="column is-one-fifth has-text-centered">
+        </div>
+    </div>
+</div>
+
+    <script>
+        function updateDescription(description) {
+            const descriptionText = document.getElementById('description-text');
+            descriptionText.innerText = description;
+        }
+    </script>
+</body>
+</html>
