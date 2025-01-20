@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoverable Dropdown Example</title>
     <style>
-        @import "bulma.min.css";
+        @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
 
         :root {
             --primary: #236192;
@@ -25,18 +25,20 @@
         }
 
         .dropdown {
-            position: relative;
+            position: relative; /* Necessary to properly position the dropdown menu */
+        }
 
         .dropdown-menu {
-            position: absolute;
-            left: 0;
-            transform-origin: top;
-            transform: scaleY(0);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            width: 50%;
-            background-color: #236192;
-            color: #efdbb2;
+            position: absolute; /* Absolute positioning relative to dropdown parent */
+            left: 0; /* Aligns the left edge of the first dropdown-content to the left of the trigger */
+            transform-origin: top; /* Origin point for animations */
+            transform: scaleY(0); /* Scale down by default (hidden) */
+            opacity: 0; /* Hidden by default */
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+            width: 50%; /* Ensures both dropdown-content divisions split the trigger's width evenly */
+            background-color: #236192; /* Added background color */
+            color: #efdbb2; /* Added text color */
+        }
 
         .dropdown-menu .dropdown-content:nth-child(2) {
             position: absolute; /* Absolute positioning relative to dropdown parent */
@@ -139,22 +141,22 @@
                                onmouseover="updateDescription('There are several relevant organizations in the region worth visiting regularly to expand sustainability literacy in the Interlochen community. Connections with these organizations will be expanded in the future to support frequent visits and collaboration.')">Located off Campus</a>
                         </div>
                     </div>
-                </div>
-                <div class="dropdown-content">
-                    <div class="dropdown-item">
-                        <div id="description-container" class="box"
-                             style="background-color: #236192; color: #efdbb2; padding: 20px; height: 100%; display: flex; align-items: center; justify-content: center; box-shadow: none;">
-                            <p id="description-text" style="color: #efdbb2; font-size: 1.5em;">Hover over an item to see the
-                                description.</p>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <div id="description-container" class="box"
+                                 style="background-color: #236192; color: #efdbb2; padding: 20px; height: 100%; display: flex; align-items: center; justify-content: center; box-shadow: none;">
+                                <p id="description-text" style="color: #efdbb2; font-size: 1.5em;">Hover over an item to see the
+                                    description.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <!-- Third Column -->
-    <div class="column is-one-fifth has-text-centered">
+        <div class="column is-one-fifth has-text-centered">
+        </div>
     </div>
 </div>
 
